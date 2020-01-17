@@ -1,0 +1,62 @@
+.btn{
+    /* when the button is clicked , we use :link since a tag is acting as a button*/
+    &:link,
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+        display: inline-block;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        transition: all .2s ;
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    /* when the button is hovered */
+    &:hover{
+        transform: translateY(-0.3rem);
+        box-shadow: 0 10px 20px rgba($color-back,.2);
+
+        
+        &::after{
+            transform: scaleX(1.39) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    /* when we click the element */
+    &:active{
+        transform: translateY(-0.1rem);
+        box-shadow: 0 5px 10px rgba($color-back,.2);
+    }
+
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after{
+            background-color: $color-white;
+        }
+    }
+
+    /* the after pseudo element is child of the original element */
+    &::after{
+        /* content and display props are necessary when using ::after pseudo element */
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--white-animated{
+        animation: moveInBottom .5s ease-out .75s;
+        /* before the animation starts goes backwards and applies the 0% keyframes */
+        animation-fill-mode: backwards;
+    }
+}

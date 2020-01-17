@@ -1,0 +1,19 @@
+// contains the basic definition for our project
+
+/* resetting the default browser styling*/
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    /* border-box tells the element to include the content , padding and border while calculating the height and width of the element */
+    box-sizing: inherit;
+}
+
+/* root font-size is set in the html selector */
+/* default browser font-size is 16px and we are overwriting it to 10px so we need to change it from pixel to percentrage */
+html{
+    font-size: 62.5%;
+}
+
+

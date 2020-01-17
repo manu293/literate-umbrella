@@ -1,0 +1,22 @@
+{
+  "name": "literate-umbrella",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:scss": "node-sass sass/main.scss css/style.css "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manu293/literate-umbrella.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manu293/literate-umbrella/issues"
+  },
+  "homepage": "https://github.com/manu293/literate-umbrella#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
