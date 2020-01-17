@@ -1,0 +1,35 @@
+.header{
+    height: 95vh;
+    /* linear gradiant comes first as our color is on top of the image */
+    background-image: linear-gradient(to right bottom,rgba(126,213,111,0.8) , rgba(40,180,131,0.8)),url(../img/hero.jpg);
+    /* cover tries to fit the background image to the width of the user screen */
+    background-size: cover;
+    background-position: top;
+    /* we are creating a polygon by moving from left-top to righ-top to right-bottom and finally at left-bottom */
+    clip-path: polygon( 0 0, 100% 0, 100% 70vh, 0 100% );
+    position: relative;
+
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo{
+        /* by specifing the height the width of the logo is figured out by the browser, always play with the height of the element */
+        height: 3.5rem;
+    }
+
+    
+    &__text-box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+}
+
+
+

@@ -1,8 +1,145 @@
-/*
-COLORS:
+/* browsers are optimized for opacity and transform properites */
+@keyframes moveInLeft {
+  /* animation at start */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  /* animation at end */
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
-*/
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* resetting the default browser styling*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* border-box tells the element to include the content , padding and border while calculating the height and width of the element */
+  box-sizing: inherit; }
+
+/* root font-size is set in the html selector */
+/* default browser font-size is 16px and we are overwriting it to 10px so we need to change it from pixel to percentrage */
+html {
+  font-size: 62.5%; }
+
+/* all universal font styling must be added in the body and they will be inherited by all other elements */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  box-sizing: border-box; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* we add white space by adding the margin property */
+  margin: 6rem;
+  /* span elements by default are inline elements */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* animation properties that can be used in a className */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
+
+.btn {
+  /* when the button is clicked , we use :link since a tag is acting as a button*/
+  /* when the button is hovered */
+  /* when we click the element */
+  /* the after pseudo element is child of the original element */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.39) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    /* content and display props are necessary when using ::after pseudo element */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  .btn--white-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    /* before the animation starts goes backwards and applies the 0% keyframes */
+    animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  /* linear gradiant comes first as our color is on top of the image */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+  /* cover tries to fit the background image to the width of the user screen */
+  background-size: cover;
+  background-position: top;
+  /* we are creating a polygon by moving from left-top to righ-top to right-bottom and finally at left-bottom */
+  clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* by specifing the height the width of the logo is figured out by the browser, always play with the height of the element */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
