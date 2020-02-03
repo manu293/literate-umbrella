@@ -15,7 +15,7 @@
     /* when the button is hovered */
     &:hover{
         transform: translateY(-0.3rem);
-        box-shadow: 0 10px 20px rgba($color-back,.2);
+        box-shadow: 0 10px 20px rgba($color-black,.2);
 
         
         &::after{
@@ -27,7 +27,7 @@
     /* when we click the element */
     &:active{
         transform: translateY(-0.1rem);
-        box-shadow: 0 5px 10px rgba($color-back,.2);
+        box-shadow: 0 5px 10px rgba($color-black,.2);
     }
 
     &--white{
